@@ -5,19 +5,23 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "asyncio>=3.4.3",
     "datasets>=3.1.0",
     "ipykernel>=6.29.5",
     "ipywidgets>=8.1.5",
     "jupyter>=1.1.1",
+    "onnx>=1.17.0",
     "opencv-python>=4.10.0.84",
     "pillow>=11.0.0",
+    "python-socketio[asyncio]>=5.11.4",
     "requests>=2.32.3",
     "roboflow>=1.1.49",
+    "socketio>=0.2.1",
     "torch>=2.5.1",
     "torchaudio>=2.5.1",
     "torchvision>=0.20.1",
-    "transformers>=4.46.3",
     "ultralytics>=8.3.34",
+    "uvicorn>=0.32.1",
 ]
 
 [tool.uv.sources]

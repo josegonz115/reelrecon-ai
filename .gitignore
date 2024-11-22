@@ -17,3 +17,7 @@ fish-species-combined-3
 weights
 .DS_Store
 runs
+
+node_modules
+.env
+/testjs
