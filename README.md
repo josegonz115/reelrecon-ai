@@ -13,3 +13,9 @@
 ```
 brew install jpeg-turbo
 ```
+
+
+### Notes on Webrtc
+	•	Signaling: Mechanism to exchange connection information (SDP and ICE candidates) between peers.
+	•	Media Streams: Audio/Video data transmitted over the connection.
+	•	STUN/TURN Servers: Assist with NAT traversal.

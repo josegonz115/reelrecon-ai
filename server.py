@@ -14,6 +14,9 @@ app = socketio.ASGIApp(sio)  # can also wrap FastAPI and other ASGI apps by addi
 
 warm_up_model(model)
 
+counter = 0
+N = 6
+
 @sio.event
 async def connect(sid, environ):
     # handle user auth here later if needed or mapping of user entities in app and sid assigned to client
@@ -37,7 +40,9 @@ async def handle_frame_binary(sid, data):
 
     def process_image(img):
         results = model(img, stream=True)
-        image_processing(results, img)
+        fish_name = ''
+        if counter % N == 0:
+            fish_name = image_processing(results, img)
         # original way
         # ret, img_encoded = cv2.imencode(".jpg", img)
         # if not ret:
@@ -48,10 +53,15 @@ async def handle_frame_binary(sid, data):
         img_encoded = jpeg.encode(img)
         if img_encoded is None:
             raise ValueError("Failed to encode image")
-        return img_encoded
+        return img_encoded, fish_name
     try:
-        img_bytes = await asyncio.to_thread(process_image, img)
-        await sio.emit("processed_frame", img_bytes, to=sid)
+        img_bytes, fish_name = await asyncio.to_thread(process_image, img)
+        # await sio.emit("processed_frame", img_bytes, to=sid)
+        response = {
+            "img_bytes": img_bytes,
+            "fish_name": fish_name
+        }
+        await sio.emit("processed_frame", response, to=sid)
     except ValueError as e:
         print(f"Error processing image: {e}")
         # await sio.emit("error", {"message": "Failed to process image"}, to=sid)
@@ -62,6 +72,26 @@ if __name__ == "__main__":
 
     uvicorn.run(app, host="0.0.0.0", port=1947)
 
+
+
+## MY ATTEMPT AT TRYING TO EXTRACT BOXES
+# @sio.on("frame_binary")
+# async def handle_frame_binary(sid, data):
+#     img = jpeg.decode(data, pixel_format=TJPF_BGR)
+
+#     def process_image(img):
+#         results = model(img, stream=True)
+#         # image_processing(results, img)
+#         detections = extract_boxes(results)
+#         if detections:
+#             for detection in detections:
+#                 print("Detected:", detection['class_name'])
+#                 print("Bounding Box:", detection['bbox'])
+#                 print("Confidence:", detection['confidence'])
+#         else:
+#             print("No detections.")
+#     boundary_boxes = await asyncio.to_thread(process_image, img)
+#     await sio.emit("processed_frame", boundary_boxes, to=sid)
 
 
 # @sio.on("frame")

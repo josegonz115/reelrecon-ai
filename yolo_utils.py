@@ -6,32 +6,59 @@ import numpy as np
 
 classNames = [
     "Bangus",
-    "Big head carp",
-    "Black spotted Barb",
+    "Big Head Carp",
+    "Black Spotted Barb",
     "Clownfish",
-    "Gold fish",
+    "Goldfish",
     "Gourami",
-    "Knife fish",
+    "Knife Fish",
     "Mackerel",
     "Orchid Dottyback",
-    "Pangas",
+    "Pangasius",
     "Pomfrets",
     "Rainbowfish",
-    "Red-Tilapia",
+    "Red Tilapia",
     "Tuna",
     "Yellow Tang",
     "Zebrafish",
-    "cat-fish",
-    "fish-Mullet",
-    "fish-Perch",
-    "fish_Goby",
-    "fish_Mosquito Fish",
-    "fish_Mudfish",
-    "puffer",
-    "snake head",
+    "Catfish",
+    "Mullet",
+    "Perch",
+    "Goby",
+    "Mosquito Fish",
+    "Mudfish",
+    "Puffer",
+    "Snake Head",
 ]
+# classNames = [
+#     "Bangus",
+#     "Big head carp",
+#     "Black spotted Barb",
+#     "Clownfish",
+#     "Gold fish",
+#     "Gourami",
+#     "Knife fish",
+#     "Mackerel",
+#     "Orchid Dottyback",
+#     "Pangas",
+#     "Pomfrets",
+#     "Rainbowfish",
+#     "Red-Tilapia",
+#     "Tuna",
+#     "Yellow Tang",
+#     "Zebrafish",
+#     "cat-fish",
+#     "fish-Mullet",
+#     "fish-Perch",
+#     "fish_Goby",
+#     "fish_Mosquito Fish",
+#     "fish_Mudfish",
+#     "puffer",
+#     "snake head",
+# ]
 
 def image_processing(results: List[engine.results.Results], img: np.ndarray):
+    fish_type = ''
     for r in results:
         boxes = r.boxes
         for box in boxes:
@@ -59,6 +86,29 @@ def image_processing(results: List[engine.results.Results], img: np.ndarray):
             cv2.putText(
                 img, classNames[cls], org, font, fontScale, color, thickness
             )
+            fish_type = classNames[cls]
+    return fish_type
+
+# def extract_boxes(results: List[engine.results.Results]):
+#     detections = []
+#     for r in results:
+#         boxes = r.boxes
+#         for box in boxes:
+#             # Extract bounding box coordinates
+#             x1, y1, x2, y2 = box.xyxy[0]
+#             x1, y1, x2, y2 = map(int, [x1, y1, x2, y2])
+#             # Extract confidence score
+#             confidence = float(box.conf[0])
+#             # Extract class name
+#             cls = int(box.cls[0])
+#             class_name = classNames[cls]
+#             detections.append({
+#                 'bbox': [x1, y1, x2, y2],
+#                 'confidence': confidence,
+#                 'class_id': cls,
+#                 'class_name': class_name
+#             })
+#     return detections
             
 def image_processing_onnx(outputs: np.ndarray, img: np.ndarray):
     # Assuming outputs is a numpy array with shape [1, num_detections, 6]
