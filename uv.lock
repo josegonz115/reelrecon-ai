@@ -332,6 +332,18 @@ wheels = [
 ]
 
 [[package]]
+name = "coloredlogs"
+version = "15.0.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "humanfriendly" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/cc/c7/eed8f27100517e8c0e6b923d5f0845d0cb99763da6fdee00478f91db7325/coloredlogs-15.0.1.tar.gz", hash = "sha256:7c991aa71a4577af2f82600d8f8f3a89f936baeaf9b50a9c197da014e5bf16b0", size = 278520 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/a7/06/3d6badcf13db419e25b07041d9c7b4a2c331d3f4e7134445ec5df57714cd/coloredlogs-15.0.1-py2.py3-none-any.whl", hash = "sha256:612ee75c546f53e92e70049c9dbfcc18c935a2b9a53b66085ce9ef6a6e5c0934", size = 46018 },
+]
+
+[[package]]
 name = "comm"
 version = "0.2.2"
 source = { registry = "https://pypi.org/simple" }
@@ -501,6 +513,15 @@ wheels = [
 ]
 
 [[package]]
+name = "flatbuffers"
+version = "24.3.25"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/a9/74/2df95ef84b214d2bee0886d572775a6f38793f5ca6d7630c3239c91104ac/flatbuffers-24.3.25.tar.gz", hash = "sha256:de2ec5b203f21441716617f38443e0a8ebf3d25bf0d9c0bb0ce68fa00ad546a4", size = 22139 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/41/f0/7e988a019bc54b2dbd0ad4182ef2d53488bb02e58694cd79d61369e85900/flatbuffers-24.3.25-py2.py3-none-any.whl", hash = "sha256:8dbdec58f935f3765e4f7f3cf635ac3a77f83568138d6a2311f524ec96364812", size = 26784 },
+]
+
+[[package]]
 name = "fonttools"
 version = "4.55.0"
 source = { registry = "https://pypi.org/simple" }
@@ -641,6 +662,18 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/d5/a8/882ae5d1cfa7c9c5be32feee4cee56d9873078913953423e47a756da110d/huggingface_hub-0.26.2.tar.gz", hash = "sha256:b100d853465d965733964d123939ba287da60a547087783ddff8a323f340332b", size = 375621 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/60/bf/cea0b9720c32fa01b0c4ec4b16b9f4ae34ca106b202ebbae9f03ab98cd8f/huggingface_hub-0.26.2-py3-none-any.whl", hash = "sha256:98c2a5a8e786c7b2cb6fdeb2740893cba4d53e312572ed3d8afafda65b128c46", size = 447536 },
+]
+
+[[package]]
+name = "humanfriendly"
+version = "10.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "pyreadline3", marker = "sys_platform == 'win32' and python_full_version >= '3.12'" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/cc/3f/2c29224acb2e2df4d2046e4c73ee2662023c58ff5b113c4c1adac0886c43/humanfriendly-10.0.tar.gz", hash = "sha256:6b0b831ce8f15f7300721aa49829fc4e83921a9a301cc7f606be6686a2288ddc", size = 360702 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/f0/0f/310fb31e39e2d734ccaa2c0fb981ee41f7bd5056ce9bc29b2248bd569169/humanfriendly-10.0-py2.py3-none-any.whl", hash = "sha256:1697e1a8a8f550fd43c2865cd84542fc175a61dcb779b6fee18cf6b6ccba1477", size = 86794 },
 ]
 
 [[package]]
@@ -1269,12 +1302,6 @@ wheels = [
 ]
 
 [[package]]
-name = "netifaces"
-version = "0.10.6"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/72/01/ba076082628901bca750bf53b322a8ff10c1d757dc29196a8e6082711c9d/netifaces-0.10.6.tar.gz", hash = "sha256:0c4da523f36d36f1ef92ee183f2512f3ceb9a9d2a45f7d19cda5a42c6689ebe0", size = 25166 }
-
-[[package]]
 name = "networkx"
 version = "3.4.2"
 source = { registry = "https://pypi.org/simple" }
@@ -1496,6 +1523,27 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/3d/7c/67f4952d1b56b3f74a154b97d0dd0630d525923b354db117d04823b8b49b/onnx-1.17.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:4f3fb5cc4e2898ac5312a7dc03a65133dd2abf9a5e520e69afb880a7251ec97a", size = 16046307 },
     { url = "https://files.pythonhosted.org/packages/ae/20/6da11042d2ab870dfb4ce4a6b52354d7651b6b4112038b6d2229ab9904c4/onnx-1.17.0-cp312-cp312-win32.whl", hash = "sha256:317870fca3349d19325a4b7d1b5628f6de3811e9710b1e3665c68b073d0e68d7", size = 14424235 },
     { url = "https://files.pythonhosted.org/packages/35/55/c4d11bee1fdb0c4bd84b4e3562ff811a19b63266816870ae1f95567aa6e1/onnx-1.17.0-cp312-cp312-win_amd64.whl", hash = "sha256:659b8232d627a5460d74fd3c96947ae83db6d03f035ac633e20cd69cfa029227", size = 14530453 },
+]
+
+[[package]]
+name = "onnxruntime-gpu"
+version = "1.20.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "coloredlogs" },
+    { name = "flatbuffers" },
+    { name = "numpy", version = "1.26.4", source = { registry = "https://pypi.org/simple" }, marker = "sys_platform == 'darwin'" },
+    { name = "numpy", version = "2.1.3", source = { registry = "https://pypi.org/simple" }, marker = "sys_platform != 'darwin'" },
+    { name = "packaging" },
+    { name = "protobuf" },
+    { name = "sympy" },
+]
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/91/a8/6984a2fb070be372a866108e3e85c9eb6e8f0378a8567a66967d80befb75/onnxruntime_gpu-1.20.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:1951f96cd534c6151721e552606d0d792ea6a4c3e57e2f10eed17cca8105e953", size = 291510989 },
+    { url = "https://files.pythonhosted.org/packages/e8/15/0a9887bd2931b7b7e5f36995f266d51e66c0e02f84d18cab65133b111ac1/onnxruntime_gpu-1.20.1-cp312-cp312-win_amd64.whl", hash = "sha256:696de465884480fad1deffd936bee05c6f10fdfe4f5fcef1927a71f5d28ed9ef", size = 279699210 },
+    { url = "https://files.pythonhosted.org/packages/51/86/de1d7e513e178265e5fac8fd7fd529decd06416cbe316ce77a5b0ff6915b/onnxruntime_gpu-1.20.1-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:8337d7badb59b3f4af530ed6437a7471d48ab2e45f7b253a355c8db9cabee67c", size = 291512781 },
+    { url = "https://files.pythonhosted.org/packages/c7/87/1361640e9277622591926f84d10fcc289c20be03e1ff5480d66c3cd2402f/onnxruntime_gpu-1.20.1-cp313-cp313-win_amd64.whl", hash = "sha256:9f0cc7ccd8e75da510ddab65d891b1384442d1b161863c521d335d1a56e5aa40", size = 279698268 },
+    { url = "https://files.pythonhosted.org/packages/7a/26/67059fa067d9584121981cfa9983e1526e5f3ca393d1ace4a99ce9af500d/onnxruntime_gpu-1.20.1-cp313-cp313t-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:965d6ee002c114d310c8d38680f42f1c94603b3547bcc62956ff565d528caa88", size = 291503278 },
 ]
 
 [[package]]
@@ -1838,6 +1886,15 @@ wheels = [
 ]
 
 [[package]]
+name = "pyreadline3"
+version = "3.5.4"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/0f/49/4cea918a08f02817aabae639e3d0ac046fef9f9180518a3ad394e22da148/pyreadline3-3.5.4.tar.gz", hash = "sha256:8d57d53039a1c75adba8e50dd3d992b28143480816187ea5efbd5c78e6c885b7", size = 99839 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/5a/dc/491b7661614ab97483abf2056be1deee4dc2490ecbf7bff9ab5cdbac86e1/pyreadline3-3.5.4-py3-none-any.whl", hash = "sha256:eaf8e6cc3c49bcccf145fc6067ba8643d1df34d604a1ec0eccbf7a18e6d3fae6", size = 83178 },
+]
+
+[[package]]
 name = "python-dateutil"
 version = "2.9.0.post0"
 source = { registry = "https://pypi.org/simple" }
@@ -1891,6 +1948,16 @@ sdist = { url = "https://files.pythonhosted.org/packages/32/31/4ba0d9d86c645ba33
 wheels = [
     { url = "https://files.pythonhosted.org/packages/7e/9a/52b94c8c9516e07844d3da3d0da3e68649f172aeeace8d7a1becca9e6111/python_socketio-5.11.4-py3-none-any.whl", hash = "sha256:42efaa3e3e0b166fc72a527488a13caaac2cefc76174252486503bd496284945", size = 76246 },
 ]
+
+[[package]]
+name = "pyturbojpeg"
+version = "1.7.7"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "numpy", version = "1.26.4", source = { registry = "https://pypi.org/simple" }, marker = "sys_platform == 'darwin'" },
+    { name = "numpy", version = "2.1.3", source = { registry = "https://pypi.org/simple" }, marker = "sys_platform != 'darwin'" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/5a/65/237968ce82e6980a41064e0c16bddb20cc0f6132b8ae1762a1ac75a1afac/PyTurboJPEG-1.7.7.tar.gz", hash = "sha256:2f1929f6bb32faf3c6007fbfbae1932e125b690173be60bcae03f678ffa4963b", size = 12075 }
 
 [[package]]
 name = "pytz"
@@ -2005,12 +2072,13 @@ dependencies = [
     { name = "ipywidgets" },
     { name = "jupyter" },
     { name = "onnx" },
+    { name = "onnxruntime-gpu" },
     { name = "opencv-python" },
     { name = "pillow" },
     { name = "python-socketio" },
+    { name = "pyturbojpeg" },
     { name = "requests" },
     { name = "roboflow" },
-    { name = "socketio" },
     { name = "torch" },
     { name = "torchaudio" },
     { name = "torchvision" },
@@ -2026,12 +2094,13 @@ requires-dist = [
     { name = "ipywidgets", specifier = ">=8.1.5" },
     { name = "jupyter", specifier = ">=1.1.1" },
     { name = "onnx", specifier = ">=1.17.0" },
+    { name = "onnxruntime-gpu", specifier = ">=1.20.1" },
     { name = "opencv-python", specifier = ">=4.10.0.84" },
     { name = "pillow", specifier = ">=11.0.0" },
     { name = "python-socketio", extras = ["asyncio"], specifier = ">=5.11.4" },
+    { name = "pyturbojpeg", specifier = ">=1.7.7" },
     { name = "requests", specifier = ">=2.32.3" },
     { name = "roboflow", specifier = ">=1.1.49" },
-    { name = "socketio", specifier = ">=0.2.1" },
     { name = "torch", specifier = ">=2.5.1" },
     { name = "torchaudio", specifier = ">=2.5.1" },
     { name = "torchvision", specifier = ">=0.20.1" },
@@ -2253,16 +2322,6 @@ sdist = { url = "https://files.pythonhosted.org/packages/a2/87/a6771e1546d97e7e0
 wheels = [
     { url = "https://files.pythonhosted.org/packages/e9/44/75a9c9421471a6c4805dbf2356f7c181a29c1879239abab1ea2cc8f38b40/sniffio-1.3.1-py3-none-any.whl", hash = "sha256:2f6da418d1f1e0fddd844478f41680e794e6051915791a034ff65e5f100525a2", size = 10235 },
 ]
-
-[[package]]
-name = "socketio"
-version = "0.2.1"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "netifaces" },
-    { name = "setuptools" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/e0/bf/37ebfc6f628741a1ece11a3147b1927168ff70839b6ec83d0f9a1526abee/socketio-0.2.1.tar.gz", hash = "sha256:dee5abde39c6021d9d1874582479a4e7f8a8352b38bc7731fb6b27b76976f62c", size = 6081 }
 
 [[package]]
 name = "soupsieve"

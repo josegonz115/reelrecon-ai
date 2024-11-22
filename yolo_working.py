@@ -3,67 +3,20 @@ from typing import List
 import numpy as np
 from ultralytics import YOLOv10, engine
 import cv2
-import math
-# import ultralytics
+import torch
+from yolo_utils import image_processing
+
+device = 'cuda' if torch.cuda.is_available() else 'cpu'
+print(f"Using device: {device}")
 
 model = YOLOv10("runs2/detect/train/weights/best.pt")
+model.to(device)
 
-classNames = [
-    "Bangus",
-    "Big head carp",
-    "Black spotted Barb",
-    "Clownfish",
-    "Gold fish",
-    "Gourami",
-    "Knife fish",
-    "Mackerel",
-    "Orchid Dottyback",
-    "Pangas",
-    "Pomfrets",
-    "Rainbowfish",
-    "Red-Tilapia",
-    "Tuna",
-    "Yellow Tang",
-    "Zebrafish",
-    "cat-fish",
-    "fish-Mullet",
-    "fish-Perch",
-    "fish_Goby",
-    "fish_Mosquito Fish",
-    "fish_Mudfish",
-    "puffer",
-    "snake head",
-]
-
-
-def image_processing(results: List[engine.results.Results], img: np.ndarray):
-    for r in results:
-        boxes = r.boxes
-        for box in boxes:
-            # bounding box
-            x1, y1, x2, y2 = box.xyxy[0]
-            x1, y1, x2, y2 = (
-                int(x1),
-                int(y1),
-                int(x2),
-                int(y2),
-            )  # convert to int values
-            # put box in cam
-            cv2.rectangle(img, (x1, y1), (x2, y2), (255, 0, 255), 3)
-            confidence = math.ceil((box.conf[0] * 100)) / 100
-            print("Confidence --->", confidence)
-            # class name
-            cls = int(box.cls[0])
-            print("Class name -->", classNames[cls])
-            # object details
-            org = [x1, y1]
-            font = cv2.FONT_HERSHEY_SIMPLEX
-            fontScale = 1
-            color = (255, 0, 0)
-            thickness = 2
-            cv2.putText(
-                img, classNames[cls], org, font, fontScale, color, thickness
-            )
+"""
+WARNING ⚠️ torch.Tensor inputs should be normalized 0.0-1.0 but max value is 4.806208610534668. Dividing input by 255.
+0: 640x640 (no detections), 12.0ms
+Speed: 0.1ms preprocess, 12.0ms inference, 65.3ms postprocess per image at shape (1, 3, 640, 640)
+"""
 
 def main():
     cap = cv2.VideoCapture(0)
