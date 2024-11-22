@@ -14,7 +14,7 @@ data
 test
 dataset
 fish-species-combined-3
-weights
+/weights
 .DS_Store
 runs
 
